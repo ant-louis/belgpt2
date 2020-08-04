@@ -29,6 +29,22 @@ from transformers import AutoModelWithLMHead, AutoTokenizer
 # Load pretrained model and tokenizer
 belgpt2 = AutoModelWithLMHead.from_pretrained("antoiloui/belgpt2")
 belgpt2_tokenizer = AutoTokenizer.from_pretrained("antoiloui/belgpt2")
+
+# Generate a sample of text
+model.eval()
+output = model.generate(
+            bos_token_id=random.randint(1,50000),
+            do_sample=True,   
+            top_k=50, 
+            max_length=1000,
+            top_p=0.95, 
+            num_return_sequences=1
+)
+
+# Decode it
+decoded_output = []
+for sample in output:
+    decoded_output.append(tokenizer.decode(sample, skip_special_tokens=True))
 ```
 
 ## 2. Pre-training BelGPT-2 <a name="pretraining_gpt2"></a>
