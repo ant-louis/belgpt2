@@ -1,27 +1,33 @@
 # BelGPT-2
 
-This repository provides the code for pre-training BelGPT-2, a GPT-2 model pre-trained on a very large and heterogeneous French corpus.
+BelGPT-2 is a French GPT-2 model pre-trained on a very large and heterogeneous French corpus.
 
 ## Table of contents
-1. [Data processing](#data_processing)
-    1. [Install dependencies](#dependencies)
-    2. [Download and preprocess data](#download_data)
-    3. [Split data](#split_data)
-    4. [Merge data](#merge_data)
-    5. [Learn Byte Pair Encoding (BPE)](#learn_bpe)
-2. [Pre-training](#pretraining)
-    1. [Install apex](#install_apex)
-    2. [DataParallel training](#dataparallel)
-    3. [DistributedDataParallel training](#distributeddataparallel)
-3. [Results](#results)
+1. [Using BelGPT-2](#using_belgpt2)
+2. [Pre-training BelGPT-2](#pretraining_gpt2)
+    1. [Data](#data)
+        1. [Install dependencies](#dependencies)
+        2. [Download and preprocess data](#download_data)
+        3. [Split data](#split_data)
+        4. [Merge data](#merge_data)
+        5. [Learn Byte Pair Encoding (BPE)](#learn_bpe)
+    2. [Training](#training)
+        1. [Install apex](#install_apex)
+        2. [DataParallel training](#dataparallel)
+        3. [DistributedDataParallel training](#distributeddataparallel)
+    3. [Results](#results)
 
 
-## 1. Data processing <a name="data_processing"></a>
+## 1. Using BelGPT-2 <a name="using_belgpt2"></a>
+
+## 2. Pre-training GPT-2 <a name="pretraining_gpt2"></a>
+
+### 2.1. Data <a name="data"></a>
 
 This section describes the steps for downloading, cleaning and tokenizing a large French corpus (inspired by the data collection from [FlauBERT](https://github.com/getalp/Flaubert)).
 
 
-### Install dependencies <a name="dependencies"></a>
+#### Install dependencies <a name="dependencies"></a>
 You should clone this repo and then install [WikiExtractor](https://github.com/attardi/wikiextractor) and [Moses tokenizer](https://github.com/moses-smt/mosesdecoder):
 ```bash
 git clone https://github.com/antoiloui/belgpt2
@@ -32,7 +38,7 @@ git clone https://github.com/attardi/wikiextractor.git
 git clone https://github.com/moses-smt/mosesdecoder.git
 ```
 
-### Download and preprocess data <a name="download_data"></a>
+#### Download and preprocess data <a name="download_data"></a>
 In this section, we describe the pipeline to prepare the data. In the following, replace `$DATA_DIR`, `$corpus_name` respectively with the path to the local directory to save the downloaded data and the name of the corpus that you want to download among the options specified in the scripts.
 
 To download and preprocess the data, excecute the following commands:
@@ -60,7 +66,7 @@ Below is the list of copora along with their corresponding `$corpus_name`s. For 
 Once all the corpora have been processed, please put them all directly under the `$DATA_DIR/processed/` repository. You can also delete the `$DATA_DIR/raw/` repository, as it is no longer useful for the following steps.
 
 
-### Split data <a name="split_data"></a>
+#### Split data <a name="split_data"></a>
 Run the following command to split cleaned corpus into train, validation, and test sets. You can modify the train/validation/test ratio in the script.
 
 ```bash
@@ -70,7 +76,7 @@ bash split_train_val_test.sh $FILE_PATH
 where `$FILE_PATH` is path to the file to be split. The output files are saved in `$DATA_DIR/processed/split/train/$corpus_name.train`, `$DATA_DIR/processed/split/dev/$corpus_name.dev`, `$DATA_DIR/processed/split/test/$corpus_name.test`.
 
 
-### Merge data <a name="merge_data"></a>
+#### Merge data <a name="merge_data"></a>
 
 Run the following command to merge all train/dev/test files into unique train/dev/test files:
 
@@ -81,7 +87,7 @@ bash merge.sh $DIR_PATH
 where `$DIR_PATH` is the path of directory containing the files to merge (e.g., `$DATA_DIR/processed/split/train`). The output file is saved under the same directory as `fr.*` (`fr.train`, `fr.dev` and `fr.test`).
 
 
-### Learn Byte Pair Encoding (BPE) <a name="learn_bpe"></a>
+#### Learn Byte Pair Encoding (BPE) <a name="learn_bpe"></a>
 
 Run the following command to learn BPE on your corpus using the 🤗 [Tokenizers](https://github.com/huggingface/tokenizers) library.:
 
@@ -94,11 +100,11 @@ bash learn_bpe.sh $FILES $METHOD $VOCAB_SIZE $OUTPUT
 * `$OUTPUT`: path to where the trained model will be saved (`<$METHOD-vocab>.json` and `<$METHOD-merges>.txt` are generated).
 
 
-## 2. Pre-training <a name="pretraining"></a>
+### 2.2. Training <a name="training"></a>
 
 This section describes the steps for pre-training BelGPT-2 using the 🤗 [Transformers](https://github.com/huggingface/transformers) library.
 
-### Install apex <a name="install_apex"></a>
+#### Install apex <a name="install_apex"></a>
 Mixed precision training (fp16) with opt_level O2 gives the exact same loss but much faster and with less memory.
 ```bash
 $ git clone https://github.com/NVIDIA/apex
@@ -106,7 +112,7 @@ $ cd apex
 $ pip install -v --no-cache-dir ./
 ```
 
-### DataParallel training <a name="dataparallel"></a>
+#### DataParallel training <a name="dataparallel"></a>
 Run the following command to launch training with DataParallel:
 ```bash
 python tools/run_language_modeling.py \
@@ -136,7 +142,7 @@ python tools/run_language_modeling.py \
 
 Note that APEX with with DataParallel only works with opt_level O1 for now (see https://github.com/NVIDIA/apex/issues/227). Check `pretrain_parallel.sh` for more details about the training paramaters.
 
-### DistributedDataParallel training <a name="distributeddataparallel"></a>
+#### DistributedDataParallel training <a name="distributeddataparallel"></a>
 Run the following command to launch training with DistributedDataParallel:
 ```bash
 python -m torch.distributed.launch --nproc_per_node=$NB_GPU --nnodes=1 --node_rank=0 tools/run_language_modeling.py \
@@ -167,7 +173,7 @@ python -m torch.distributed.launch --nproc_per_node=$NB_GPU --nnodes=1 --node_ra
 
 Check `pretrain_distributed.sh` for more details about the training paramaters.
 
-## 3. Results <a name="results"></a>
+### 2.3. Results <a name="results"></a>
 The perplexity scores on the test set are shown below:
 
 <p align="center"> <img src="./-/test_set_evaluation.png"> </p>
