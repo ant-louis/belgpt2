@@ -20,7 +20,7 @@ BelGPT-2 is a French GPT-2 model pre-trained on a very large and heterogeneous F
 
 ## 1. Using BelGPT-2 <a name="using_belgpt2"></a>
 
-## 2. Pre-training GPT-2 <a name="pretraining_gpt2"></a>
+## 2. Pre-training BelGPT-2 <a name="pretraining_gpt2"></a>
 
 ### 2.1. Data <a name="data"></a>
 
