@@ -20,6 +20,17 @@ BelGPT-2 is a French GPT-2 model pre-trained on a very large and heterogeneous F
 
 ## 1. Using BelGPT-2 <a name="using_belgpt2"></a>
 
+You can use BelGPT-2 with [Hugging Face's Transformers](https://github.com/huggingface/transformers) library as follow.
+
+```python
+import torch
+from transformers import AutoModelWithLMHead, AutoTokenizer
+
+# Load pretrained model and tokenizer
+belgpt2 = AutoModelWithLMHead.from_pretrained("antoiloui/belgpt2")
+belgpt2_tokenizer = AutoTokenizer.from_pretrained("antoiloui/belgpt2")
+```
+
 ## 2. Pre-training BelGPT-2 <a name="pretraining_gpt2"></a>
 
 ### 2.1. Data <a name="data"></a>
