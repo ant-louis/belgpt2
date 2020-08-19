@@ -11,7 +11,7 @@ def parse_arguments():
     parser = argparse.ArgumentParser()
     parser.add_argument("--model_path", 
                         type=str, 
-                        default="./models/belgpt2-small/belgpt2",
+                        default="belgpt2",
                         help="Path of the model directory."
     )
     arguments, _ = parser.parse_known_args()
