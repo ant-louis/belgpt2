@@ -24,11 +24,11 @@ You can use BelGPT-2 with [Hugging Face's Transformers](https://github.com/huggi
 
 ```python
 import torch
-from transformers import AutoModelWithLMHead, AutoTokenizer
+from transformers import GPT2Tokenizer, GPT2LMHeadModel
 
 # Load pretrained model and tokenizer
-belgpt2 = AutoModelWithLMHead.from_pretrained("antoiloui/belgpt2")
-belgpt2_tokenizer = AutoTokenizer.from_pretrained("antoiloui/belgpt2")
+belgpt2 = GPT2LMHeadModel.from_pretrained("antoiloui/belgpt2")
+belgpt2_tokenizer = GPT2Tokenizer.from_pretrained("antoiloui/belgpt2")
 
 # Generate a sample of text
 belgpt2.eval()
@@ -36,7 +36,7 @@ output = belgpt2.generate(
             bos_token_id=random.randint(1,50000),
             do_sample=True,   
             top_k=50, 
-            max_length=1000,
+            max_length=100,
             top_p=0.95, 
             num_return_sequences=1
 )
@@ -45,6 +45,7 @@ output = belgpt2.generate(
 decoded_output = []
 for sample in output:
     decoded_output.append(belgpt2_tokenizer.decode(sample, skip_special_tokens=True))
+print(decoded_output)
 ```
 
 ## 2. Pre-training BelGPT-2 <a name="pretraining_gpt2"></a>
