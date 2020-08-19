@@ -20,7 +20,7 @@ BelGPT-2 is a French GPT-2 model pre-trained on a very large and heterogeneous F
 
 ## 1. Using BelGPT-2 <a name="using_belgpt2"></a>
 
-You can use BelGPT-2 with [🤗 Transformers](https://github.com/huggingface/transformers) library as follow.
+You can use BelGPT-2 with [🤗 Transformers](https://github.com/huggingface/transformers) library as follows:
 
 ```python
 import torch
