@@ -16,7 +16,7 @@
     3. [Results](#results)
 
 
-## 1. Using GPT2-French <a name="using_belgpt2"></a>
+## 1. Using GPT2-French <a name="using_gpt2_french"></a>
 
 You can use GPT2-French with [🤗 Transformers](https://github.com/huggingface/transformers) library as follows:
 
@@ -25,12 +25,12 @@ import torch
 from transformers import GPT2Tokenizer, GPT2LMHeadModel
 
 # Load pretrained model and tokenizer
-belgpt2 = GPT2LMHeadModel.from_pretrained("antoiloui/belgpt2")
-belgpt2_tokenizer = GPT2Tokenizer.from_pretrained("antoiloui/belgpt2")
+model = GPT2LMHeadModel.from_pretrained("antoiloui/belgpt2")
+tokenizer = GPT2Tokenizer.from_pretrained("antoiloui/belgpt2")
 
 # Generate a sample of text
-belgpt2.eval()
-output = belgpt2.generate(
+model.eval()
+output = model.generate(
             bos_token_id=random.randint(1,50000),
             do_sample=True,   
             top_k=50, 
@@ -42,7 +42,7 @@ output = belgpt2.generate(
 # Decode it
 decoded_output = []
 for sample in output:
-    decoded_output.append(belgpt2_tokenizer.decode(sample, skip_special_tokens=True))
+    decoded_output.append(tokenizer.decode(sample, skip_special_tokens=True))
 print(decoded_output)
 ```
 
@@ -56,7 +56,7 @@ This section describes the steps for downloading, cleaning and tokenizing a larg
 #### Install dependencies <a name="dependencies"></a>
 You should clone this repo and then install [WikiExtractor](https://github.com/attardi/wikiextractor) and [Moses tokenizer](https://github.com/moses-smt/mosesdecoder):
 ```bash
-git clone https://github.com/antoiloui/belgpt2
+git clone https://github.com/antoiloui/gpt2-french
 
 # Install toolkit
 cd Code/Data_processing/Corpus/tools
