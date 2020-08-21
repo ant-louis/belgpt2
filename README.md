@@ -1,10 +1,8 @@
-# BelGPT-2
-
-BelGPT-2 is a French GPT-2 model pre-trained on a very large and heterogeneous French corpus.
+# GPT2-French
 
 ## Table of contents
-1. [Using BelGPT-2](#using_belgpt2)
-2. [Pre-training BelGPT-2](#pretraining_gpt2)
+1. [Using GPT2-French](#using_gpt2_french)
+2. [Pre-training GPT2-French](#pretraining_gpt2)
     1. [Data](#data)
         1. [Install dependencies](#dependencies)
         2. [Download and preprocess data](#download_data)
@@ -18,9 +16,9 @@ BelGPT-2 is a French GPT-2 model pre-trained on a very large and heterogeneous F
     3. [Results](#results)
 
 
-## 1. Using BelGPT-2 <a name="using_belgpt2"></a>
+## 1. Using GPT2-French <a name="using_belgpt2"></a>
 
-You can use BelGPT-2 with [🤗 Transformers](https://github.com/huggingface/transformers) library as follows:
+You can use GPT2-French with [🤗 Transformers](https://github.com/huggingface/transformers) library as follows:
 
 ```python
 import torch
@@ -48,7 +46,7 @@ for sample in output:
 print(decoded_output)
 ```
 
-## 2. Pre-training BelGPT-2 <a name="pretraining_gpt2"></a>
+## 2. Pre-training GPT2-French <a name="pretraining_gpt2"></a>
 
 ### 2.1. Data <a name="data"></a>
 
@@ -130,7 +128,7 @@ bash learn_bpe.sh $FILES $METHOD $VOCAB_SIZE $OUTPUT
 
 ### 2.2. Training <a name="training"></a>
 
-This section describes the steps for pre-training BelGPT-2 using the 🤗 [Transformers](https://github.com/huggingface/transformers) library.
+This section describes the steps for pre-training GPT2-French using the 🤗 [Transformers](https://github.com/huggingface/transformers) library.
 
 #### Install apex <a name="install_apex"></a>
 Mixed precision training (fp16) with opt_level O2 gives the exact same loss but much faster and with less memory.
