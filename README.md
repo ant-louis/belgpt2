@@ -61,7 +61,7 @@ You should clone this repo and then install [WikiExtractor](https://github.com/a
 git clone https://github.com/antoiloui/gpt2-french
 
 # Install toolkit
-cd Code/Data_processing/Corpus/tools
+cd tools
 git clone https://github.com/attardi/wikiextractor.git
 git clone https://github.com/moses-smt/mosesdecoder.git
 ```
