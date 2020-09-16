@@ -1,6 +1,6 @@
 # BelGPT-2
 
-**BelGPT-2** (aka *Belgian GPT-2* 🇧🇪) is a GPT-2 model pre-trained on a very large and heterogeneous French corpus. This repository shares everything: the pre-trained model (only the "small" version for now), the data, the code to use the model and the code to pre-train it if you need.
+**BelGPT-2** (*Belgian GPT-2* 🇧🇪) is a GPT-2 model pre-trained on a very large and heterogeneous French corpus. This repository shares everything: the pre-trained model (only the "small" version for now), the data, the code to use the model and the code to pre-train it if you need.
 
 ## Table of contents
 1. [Using BelGPT-2 for French Text Generation](#using_belgpt2)
