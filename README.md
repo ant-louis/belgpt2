@@ -1,8 +1,8 @@
-# GPT2-French
+# BelGPT-2
 
 ## Table of contents
-1. [Using GPT2-French](#using_gpt2_french)
-2. [Pre-training GPT2-French](#pretraining_gpt2)
+1. [Using BelGPT-2](#using_belgpt2)
+2. [Pre-training BelGPT-2](#pretraining_belgpt2)
     1. [Data](#data)
         1. [Install dependencies](#dependencies)
         2. [Download and preprocess data](#download_data)
@@ -16,9 +16,9 @@
     3. [Results](#results)
 
 
-## 1. Using GPT2-French <a name="using_gpt2_french"></a>
+## 1. Using BelGPT-2 <a name="using_belgpt2"></a>
 
-You can use GPT2-French with [🤗 Transformers](https://github.com/huggingface/transformers) library as follows:
+You can use BelGPT-2 with [🤗 Transformers](https://github.com/huggingface/transformers) library as follows:
 
 ```python
 import torch
@@ -46,7 +46,7 @@ for sample in output:
 print(decoded_output)
 ```
 
-## 2. Pre-training GPT2-French <a name="pretraining_gpt2"></a>
+## 2. Pre-training GPT2-French <a name="pretraining_belgpt2"></a>
 
 ### 2.1. Data <a name="data"></a>
 
