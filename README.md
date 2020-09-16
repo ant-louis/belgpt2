@@ -3,7 +3,7 @@
 **BelGPT-2** (*Belgian GPT-2* 🇧🇪) is a GPT-2 model pre-trained on a very large and heterogeneous French corpus. This repository shares everything: the pre-trained model (only the "small" version for now), the data, the code to use the model and the code to pre-train it if you need.
 
 ## Table of contents
-1. [Using BelGPT-2 for French Text Generation](#using_belgpt2)
+1. [Using BelGPT-2 for Text Generation in French](#using_belgpt2)
 2. [Pre-training BelGPT-2](#pretraining_belgpt2)
     1. [Data](#data)
         1. [Install dependencies](#dependencies)
@@ -18,7 +18,7 @@
     3. [Results](#results)
 
 
-## 1. Using BelGPT-2 <a name="using_belgpt2"></a>
+## 1. Using BelGPT-2 for Text Generation in French <a name="using_belgpt2"></a>
 
 You can use BelGPT-2 with [🤗 transformers](https://github.com/huggingface/transformers) library as follows:
 
