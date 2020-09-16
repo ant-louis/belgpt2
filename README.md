@@ -117,7 +117,7 @@ where `$DIR_PATH` is the path of directory containing the files to merge (e.g., 
 
 #### Learn Byte Pair Encoding (BPE) <a name="learn_bpe"></a>
 
-Run the following command to learn BPE on your corpus using the 🤗 [Tokenizers](https://github.com/huggingface/tokenizers) library.:
+Run the following command to learn BPE on your corpus using the 🤗 [tokenizers](https://github.com/huggingface/tokenizers) library.:
 
 ```bash
 bash learn_bpe.sh $FILES $METHOD $VOCAB_SIZE $OUTPUT
