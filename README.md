@@ -1,7 +1,7 @@
 # BelGPT-2
 
 ## Table of contents
-1. [Using BelGPT-2](#using_belgpt2)
+1. [Using BelGPT-2 for French Text Generation](#using_belgpt2)
 2. [Pre-training BelGPT-2](#pretraining_belgpt2)
     1. [Data](#data)
         1. [Install dependencies](#dependencies)
