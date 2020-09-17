@@ -1,3 +1,5 @@
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 # BelGPT-2
 
 **BelGPT-2** (*Belgian GPT-2* 🇧🇪) is a GPT-2 model pre-trained on a very large and heterogeneous French corpus (~60Gb). This repository shares everything: the pre-trained model (only the "small" version for now), the data, the code to use the model and the code to pre-train it if you need.
