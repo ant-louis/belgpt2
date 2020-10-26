@@ -60,7 +60,7 @@ This section describes the steps for downloading, cleaning and tokenizing a larg
 #### Install dependencies <a name="dependencies"></a>
 You should clone this repo and then install [WikiExtractor](https://github.com/attardi/wikiextractor) and [Moses tokenizer](https://github.com/moses-smt/mosesdecoder):
 ```bash
-git clone https://github.com/antoiloui/gpt2-french
+git clone https://github.com/antoiloui/belgpt2
 
 # Install toolkit
 cd tools
