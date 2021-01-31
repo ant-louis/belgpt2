@@ -36,7 +36,7 @@ print(decoded_output)
 
 ## Documentation
 
-Detailed documentation of this tool can be found [here](docs/index.md).
+Detailed documentation on the pre-trained model, its implementation, and the data can be found [here](docs/index.md).
 
 ## Citation
 
