@@ -1,5 +1,4 @@
 ![](https://img.shields.io/github/license/antoiloui/belgpt2)
-![](https://img.shields.io/pypi/pyversions/belgpt2)
 
 # Belgian GPT-2 🇧🇪
 

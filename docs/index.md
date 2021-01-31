@@ -1,8 +1,8 @@
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+![](https://img.shields.io/github/license/antoiloui/belgpt2)
 
-# BelGPT-2
+# Belgian GPT-2 🇧🇪
 
-**BelGPT-2** (*Belgian GPT-2* 🇧🇪) is a GPT-2 model pre-trained on a very large and heterogeneous French corpus (~60Gb). This repository shares everything: the pre-trained model (only the "small" version for now), the data, the code to use the model and the code to pre-train it if you need.
+**A GPT-2 model pre-trained on a very large and heterogeneous French corpus (~60Gb)**. This repository shares everything: the pre-trained model (only the "small" version for now), the data, the code to use the model and the code to pre-train it if you need.
 
 ## Table of contents
 1. [Using BelGPT-2 for Text Generation in French](#using_belgpt2)
@@ -206,4 +206,4 @@ Check `pretrain_distributed.sh` for more details about the training paramaters.
 ### 2.3. Results <a name="results"></a>
 The perplexity scores on the test set are shown below:
 
-<p align="center"> <img src="./-/test_set_evaluation.png"> </p>
+<p align="center"> <img src="./test_set_evaluation.png"> </p>
