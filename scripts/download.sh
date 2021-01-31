@@ -32,7 +32,7 @@ else
     dump=20200323
 fi
 
-# Tools paths
+# Tools path
 TOOLS_PATH='tools'
 
 # Path to save data
