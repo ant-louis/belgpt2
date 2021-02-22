@@ -2,7 +2,7 @@
 
 # Belgian GPT-2 🇧🇪
 
-**A GPT-2 model pre-trained on a very large and heterogeneous French corpus (~60Gb)**. This repository shares everything: the pre-trained model (only the "small" version for now), the data, the code to use the model and the code to pre-train it if you need.
+**A GPT-2 model pre-trained on a very large and heterogeneous French corpus (~60Gb)**.
 
 ## Table of contents
 1. [Using BelGPT-2 for Text Generation in French](#using_belgpt2)
