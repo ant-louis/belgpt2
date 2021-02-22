@@ -63,7 +63,7 @@ You should clone this repo and then install [WikiExtractor](https://github.com/a
 git clone https://github.com/antoiloui/belgpt2
 
 # Install toolkit
-cd tools
+cd scripts/tools
 git clone https://github.com/attardi/wikiextractor.git
 git clone https://github.com/moses-smt/mosesdecoder.git
 ```
@@ -74,8 +74,8 @@ In this section, we describe the pipeline to prepare the data. In the following,
 To download and preprocess the data, excecute the following commands:
 
 ```bash
-bash download.sh $DATA_DIR $corpus_name fr
-bash preprocess.sh $DATA_DIR $corpus_name fr
+bash scripts/download.sh $DATA_DIR $corpus_name fr
+bash scripts/preprocess.sh $DATA_DIR $corpus_name fr
 ```
 
 The first command will download the raw data to `$DATA_DIR/raw/fr_$corpus_name`, the second one processes them and save to `$DATA_DIR/processed/fr_$corpus_name`.
@@ -100,7 +100,7 @@ Once all the corpora have been processed, please put them all directly under the
 Run the following command to split cleaned corpus into train, validation, and test sets. You can modify the train/validation/test ratio in the script.
 
 ```bash
-bash split_train_val_test.sh $FILE_PATH
+bash scripts/split_train_val_test.sh $FILE_PATH
 ```
 
 where `$FILE_PATH` is path to the file to be split. The output files are saved in `$DATA_DIR/processed/split/train/$corpus_name.train`, `$DATA_DIR/processed/split/dev/$corpus_name.dev`, `$DATA_DIR/processed/split/test/$corpus_name.test`.
@@ -111,7 +111,7 @@ where `$FILE_PATH` is path to the file to be split. The output files are saved i
 Run the following command to merge all train/dev/test files into unique train/dev/test files:
 
 ```bash
-bash merge.sh $DIR_PATH
+bash scripts/merge.sh $DIR_PATH
 ```
 
 where `$DIR_PATH` is the path of directory containing the files to merge (e.g., `$DATA_DIR/processed/split/train`). The output file is saved under the same directory as `fr.*` (`fr.train`, `fr.dev` and `fr.test`).
@@ -122,7 +122,7 @@ where `$DIR_PATH` is the path of directory containing the files to merge (e.g., 
 Run the following command to learn BPE on your corpus using the 🤗 [tokenizers](https://github.com/huggingface/tokenizers) library.:
 
 ```bash
-bash learn_bpe.sh $FILES $METHOD $VOCAB_SIZE $OUTPUT
+bash scripts/learn_bpe.sh $FILES $METHOD $VOCAB_SIZE $OUTPUT
 ```
 * `$FILES`: one-sentence-per-line **raw** corpus file (or comma-separated list of files).
 * `$METHOD`: model type (Choose between `byte`(Byte-Level BPE), `char`(Char-Level BPE), `spm`(SentencePiece), `wpm`(WordPiece)).
@@ -145,7 +145,7 @@ $ pip install -v --no-cache-dir ./
 #### DataParallel training <a name="dataparallel"></a>
 Run the following command to launch training with DataParallel:
 ```bash
-python tools/run_language_modeling.py \
+python scripts/tools/run_language_modeling.py \
         --model_type gpt2 \
         --model_name_or_path $MODEL \
         --tokenizer_path $TOKENIZER \
@@ -170,12 +170,12 @@ python tools/run_language_modeling.py \
         --cache_dir $CACHE
 ```
 
-Note that APEX with with DataParallel only works with opt_level O1 for now (see https://github.com/NVIDIA/apex/issues/227). Check `pretrain_parallel.sh` for more details about the training paramaters.
+Note that APEX with with DataParallel only works with opt_level O1 for now (see https://github.com/NVIDIA/apex/issues/227). Check `scripts/pretrain_parallel.sh` for more details about the training paramaters.
 
 #### DistributedDataParallel training <a name="distributeddataparallel"></a>
 Run the following command to launch training with DistributedDataParallel:
 ```bash
-python -m torch.distributed.launch --nproc_per_node=$NB_GPU --nnodes=1 --node_rank=0 tools/run_language_modeling.py \
+python -m torch.distributed.launch --nproc_per_node=$NB_GPU --nnodes=1 --node_rank=0 scripts/tools/run_language_modeling.py \
         --model_type gpt2 \
         --model_name_or_path $MODEL \
         --tokenizer_path $TOKENIZER \
@@ -201,7 +201,7 @@ python -m torch.distributed.launch --nproc_per_node=$NB_GPU --nnodes=1 --node_ra
 ```
 
 
-Check `pretrain_distributed.sh` for more details about the training paramaters.
+Check `scripts/pretrain_distributed.sh` for more details about the training paramaters.
 
 ### 2.3. Results <a name="results"></a>
 The perplexity scores on the test set are shown below:
