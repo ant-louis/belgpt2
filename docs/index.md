@@ -80,7 +80,7 @@ bash scripts/preprocess.sh $DATA_DIR $corpus_name fr
 
 The first command will download the raw data to `$DATA_DIR/raw/fr_$corpus_name`, the second one processes them and save to `$DATA_DIR/processed/fr_$corpus_name`.
 
-Below is the list of copora along with their corresponding `$corpus_name`s. For most of the corpora you can also replace `fr` by another language if that language is provided.
+Below is the list of copora along with their corresponding `$corpus_name`. For most of the corpora you can also replace `fr` by another language if that language is provided.
 
 | Dataset | `$corpus_name` | Raw size | Cleaned size |
 | :------|   :--- | :---: | :---: | 
