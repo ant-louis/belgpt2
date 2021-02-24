@@ -22,7 +22,7 @@
 
 ## 1. Using BelGPT-2 for Text Generation in French <a name="using_belgpt2"></a>
 
-You can use BelGPT-2 with [🤗 transformers](https://github.com/huggingface/transformers):
+You can use BelGPT-2 with [🤗 Transformers library](https://huggingface.co/antoiloui/belgpt2) as follows:
 
 ```python
 import torch
