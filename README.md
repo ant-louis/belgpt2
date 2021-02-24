@@ -6,7 +6,7 @@
 
 ## Usage
 
-You can use BelGPT-2 with [🤗 transformers](https://github.com/huggingface/transformers) library as follows:
+You can use BelGPT-2 with [🤗 Transformers library](https://huggingface.co/antoiloui/belgpt2) as follows:
 
 ```python
 import torch
